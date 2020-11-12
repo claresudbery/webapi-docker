@@ -1,6 +1,8 @@
 # webapi-docker
 
-Dockerising a dotnet webapi app and deploying to Heroku (hopefully!)
+Dockerising a dotnet webapi app and deploying to Heroku.
+
+The basic vanilla API was created using `dotnet new webapi` on the command line, and then I added a couple of endpoints.
 
 # Starting the API locally
 
