@@ -12,3 +12,25 @@ Dockerising a dotnet webapi app and deploying to Heroku (hopefully!)
     - http://localhost:5000/clareforecast
     - http://localhost:5000/shiny
     - (You need `http` for the endpoints, not `https`)
+
+# Running the API in a docker container
+
+- To get it to work locally, you have to uncomment the `ENTRYPOINT` command in `Dockerfile`.
+- Then run the following:
+
+`docker build -t webapi-docker .`
+`docker run --rm -p 8080:80 --name webapi-docker-c webapi-docker`
+
+- Then visit http://localhost:8080/clareforecast
+
+# Deploying the API to Heroku
+
+- Make sure the `ENTRYPOINT` command in `Dockerfile` is commented out
+- Run the following:
+
+`heroku container:push web --app [heroku app name]`
+`heroku container:release web --app [heroku app name]`
+
+Visit https://[heroku app name].herokuapp.com/shiny or any of the endpoints listed above.
+
+It is currently deployed at https://webapi-docker.herokuapp.com/shiny (where you can also reach the other endpoints).
